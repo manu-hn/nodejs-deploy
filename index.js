@@ -1,14 +1,13 @@
 const express = require('express');
-const dotenv = require('dotenv')
+const dotenv = require('dotenv');
+const SampleRoutes  = require('./routes/Sample.routes.js');
 dotenv.config();
 
 const app = express();
 
 app.use(express.json());
 
-app.use('/', (req, res, next)=>{
-    res.status(200).json({error : false, message : 'OK Successful'})
-})
+app.use('/api/sample',  SampleRoutes);
 app.use('*', (req, res, next)=>{
     res.status(404).json({error : true, message : 'Not FOund'})
 })
