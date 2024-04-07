@@ -5,6 +5,6 @@ const { getFunction } = require('../controller/Sample.Controller');
 const router = express.Router();
 
 
-router.get('/',getFunction)
+router.get('/get',getFunction)
 
 module.exports = router;
