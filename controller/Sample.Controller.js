@@ -16,14 +16,14 @@ const getListings = async (req, res, next) => {
 
         const { id } = req.params;
 
-        if (req?.user?.uid !== id) {
-            return res.status(UNAUTHORIZED).json({ error: true, message: `Not Authorized` })
-        } else {
+        // if (req?.user?.uid !== id) {
+        //     return res.status(UNAUTHORIZED).json({ error: true, message: `Not Authorized` })
+        // } else {
 
-            const listings = await ListingModel.find({ userRef: id });
+        const listings = await ListingModel.find({ userRef: id });
 
-            return res.status(OK).json({ error: false, listings })
-        }
+        return res.status(OK).json({ error: false, listings })
+        // }
     } catch (error) {
         next(error);
     }
