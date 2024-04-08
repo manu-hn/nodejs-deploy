@@ -143,7 +143,7 @@ const getAll = async (req, res, next) => {
 
         const allData = await ListingModel.find({});
 
-        res.status(200).json({ data: allData })
+        res.status(200).json({ total: allData.length, data: allData })
     } catch (error) {
         next(error)
     }
