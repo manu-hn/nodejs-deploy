@@ -1,10 +1,11 @@
 const express = require('express');
-const { createListings, deleteListing, fetchAllListings, getListingById, getListings, updateListings, getAll } = require('../controller/Sample.Controller');
+const { createListings, deleteListing, fetchAllListings, getListingById, getListings, updateListings, getAll, getOneListing } = require('../controller/Sample.Controller');
 
 
 const router = express.Router();
 
 router.get('/get-all', getAll);
+router.get('/get-one/:id', getOneListing);
 
 router.post('/create', createListings);
 router.get('/get-listings/:id', getListings);

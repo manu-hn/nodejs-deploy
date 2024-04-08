@@ -149,7 +149,21 @@ const getAll = async (req, res, next) => {
     }
 }
 
+const getOneListing = async (req, res, next) => {
+    try {
+
+        const { id } = req.params;
+
+
+        const allData = await ListingModel.findById({ _id: id });
+
+        res.status(200).json({  data: allData })
+    } catch (error) {
+        next(error)
+    }
+}
+
 module.exports = {
     createListings, deleteListing, fetchAllListings, getListingById, updateListings, getListings
-    , getAll
+    , getAll, getOneListing
 }
